@@ -1,0 +1,64 @@
+<div class="container" >
+    <div class="row">
+        <ng-container  *ngFor="let p of emp" >
+            <div class="col-md-3">
+                <div class="card">
+                    
+                    
+                    <div class="card-body">
+                        <h4 class="card-title">{{p.empName}}</h4>
+                        
+                    </div>
+                    <div class="card-footer">
+                        <h6>{{p.empEmail}}</h6>
+                        <h6>{{p.empPhone}}</h6>
+                        <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#mymodal">Edit</button>
+                        <button class="btn btn-danger" (click)="delete(p)">Delete</button>
+                    </div>
+
+
+                    <div class="modal fade" id="mymodal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" >Edit</h5>
+                                    <a data-bs-dismiss="modal" class="btn-close"></a>
+                                  </div>
+                                <div class="modal-body">
+                                    <form  name="form" (ngSubmit)="update(p)">
+                                        <div class="form-group">
+                                          <label for="userId">Name</label>
+                                          <input type="text" class="form-control" name="username" [(ngModel)]="p.empName"  required>
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="amount">Email</label>
+                                          <input type="text" class="form-control" name="email" [(ngModel)]="p.empEmail"  required >
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="amount">Phone</label>
+                                            <input type="text" class="form-control" name="phone" [(ngModel)]="p.empPhone"  required >
+                                          </div>
+                                        <br>
+                                        <div class="form-group">
+                                
+                                          
+                                          <button class="btn btn-success"  type="submit" data-bs-dismiss="modal">Save</button>
+                                          <p style="display: inline;">&nbsp;&nbsp;&nbsp;</p>
+                                          <button type="button" class="btn " data-bs-dismiss="modal">&nbsp;Cancel&nbsp;</button>
+                                        </div>
+                                      </form>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        </div>
+</div>
+
+
+
+
+
